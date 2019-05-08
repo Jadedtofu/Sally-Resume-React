@@ -136,7 +136,7 @@
         function App(props) {
             console.log(props);
             return (
-                <main>
+                <main className={props.className}>
                     {props.children}
                 </main>
             );
