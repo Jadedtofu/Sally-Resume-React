@@ -19,13 +19,6 @@
         src="https://unpkg.com/babel-standalone@6/babel.min.js">
     </script>
     <script type="text/babel">
-        function ResumeHeader(props) {
-            return (
-                <header>
-                    <h1>{props.name} Resume</h1>
-                </header>
-            );
-        }
 
         function Address(props) {
             return (
@@ -98,12 +91,9 @@
                     <h2>Employment History</h2>
                     <ul>
                         <JobTech company="AeroNow"
-                        job="Lab Tech"
-                        detail="Assisted Lead Engineer with systems diagnostics. 
-                        Ran tests as directed, logging each test result into proprietary database. Facilitated work on UI development for testing software" />
+                        job="Lab Tech" />
                         <JobDesign company="Open Designs"
-                        job="Graphic Designer"
-                        detail="Responsible for concept designs of product websites, brochures, and ad banners. " />
+                        job="Graphic Designer" />
                     </ul>
                 </section>
             );
@@ -137,17 +127,23 @@
 
         function App(props) {
             console.log(props);
+            const studentName = "Sally Student";
+
             return (
-                <main className={props.className}>
-                    {props.children}
-                </main>
+                <div>
+                    <header role="banner">
+                        <h1>{studentName} Resume</h1>
+                    </header>
+                    <main role="main" className={props.className}>
+                        {props.children}
+                    </main>
+                </div>
             );
         }
 
         ReactDOM.render(
         // Add a className to the App
         <App className='resume'>
-                <ResumeHeader name="Sally Student" />
                 <ContactInfo />
                 <JobsList />
                 <EducationList />
